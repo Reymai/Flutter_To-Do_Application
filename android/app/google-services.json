@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "378541335360",
+    "firebase_url": "https://todo-my-dream.firebaseio.com",
+    "project_id": "todo-my-dream",
+    "storage_bucket": "todo-my-dream.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378541335360:android:e81b08cb4f128d4d1290a5",
+        "android_client_info": {
+          "package_name": "com.raimundin.fluttertodoapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "378541335360-8mgitp3aai81gr4o2vmlujj9shgu5h67.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClXd1DkQ4YyqfiJTA4zyLaSu6GQbVHcZc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "378541335360-8mgitp3aai81gr4o2vmlujj9shgu5h67.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
