@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertodoapplication/screens/wrapper.dart';
 
 void main() => runApp(MyApp());
 
@@ -6,15 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Welcome to Flutter',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('To-Do Application'),
-        ),
-        body: Center(
-          child: Text('To-Do Apllication'),
-        ),
-      ),
+      home: Wrapper(),
     );
   }
 }
