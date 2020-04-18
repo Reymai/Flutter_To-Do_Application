@@ -98,13 +98,17 @@ class _SignInState extends State<SignIn> {
                                     FlatButton(
                                       child: Text('No'),
                                       onPressed: () {
-                                        Navigator.of(context, rootNavigator: true).pop(result);
+                                        Navigator.of(context,
+                                                rootNavigator: true)
+                                            .pop(result);
                                       },
                                     ),
                                     FlatButton(
                                       child: Text('Yes'),
                                       onPressed: () {
-                                        Navigator.of(context, rootNavigator: true).pop(result);
+                                        Navigator.of(context,
+                                                rootNavigator: true)
+                                            .pop(result);
                                         showDialog(
                                           context: context,
                                           barrierDismissible: true,
@@ -127,17 +131,25 @@ class _SignInState extends State<SignIn> {
                                             ),
                                             actions: <Widget>[
                                               FlatButton(
-                                                  child: Text('Cancel'),
-                                                  onPressed: (){
-                                                    Navigator.of(context, rootNavigator: true).pop(result);
-                                                  },
+                                                child: Text('Cancel'),
+                                                onPressed: () {
+                                                  Navigator.of(context,
+                                                          rootNavigator: true)
+                                                      .pop(result);
+                                                },
                                               ),
                                               FlatButton(
-                                                  child: Text('Registr me!'),
-                                                  onPressed: (){
-                                                    Navigator.of(context, rootNavigator: true).pop(result);
-                                                    _authService.registerWithEmailAndPassword(email, password, name);
-                                                    },
+                                                child: Text('Registr me!'),
+                                                onPressed: () {
+                                                  Navigator.of(context,
+                                                          rootNavigator: true)
+                                                      .pop(result);
+                                                  _authService
+                                                      .registerWithEmailAndPassword(
+                                                          email,
+                                                          password,
+                                                          name);
+                                                },
                                               ),
                                             ],
                                           ),

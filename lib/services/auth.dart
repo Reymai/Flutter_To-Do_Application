@@ -23,14 +23,14 @@ class AuthService {
   }
 
   //sign in or sign up
-  Future isRegistred(String email, String password) async{
+  Future isRegistred(String email, String password) async {
     dynamic result = await signInWithEmailAndPassword(email, password);
     String textResult = result.toString();
     print(textResult);
 
-    if(textResult.contains('ERROR_WRONG_PASSWORD')){
+    if (textResult.contains('ERROR_WRONG_PASSWORD')) {
       return false;
-    } else if(textResult.contains('ERROR_USER_NOT_FOUND')){
+    } else if (textResult.contains('ERROR_USER_NOT_FOUND')) {
       return true;
     } else {
       print(textResult);
