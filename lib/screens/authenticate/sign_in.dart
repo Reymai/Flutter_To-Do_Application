@@ -86,7 +86,7 @@ class _SignInState extends State<SignIn> {
                         Scaffold.of(context).showSnackBar(SnackBar(
                           content: Text('Wrong password!'),
                         ));
-                      } else if (result == null) {
+                      } else if (result == true) {
                         showDialog(
                             context: context,
                             barrierDismissible: true,
