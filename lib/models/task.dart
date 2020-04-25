@@ -4,7 +4,7 @@ class Task {
   final String title;
   final String subtitle;
   final Color color;
-  //TODO add isCompleted (if it needed)
+  final bool isComplited;
 
-  Task({this.title, this.subtitle, this.color});
+  Task({this.title, this.subtitle, this.color, this.isComplited});
 }
