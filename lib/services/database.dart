@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertodoapplication/models/task.dart';
+import 'dart:math';
 
 class DatabaseService {
   final String uid;
@@ -8,20 +11,48 @@ class DatabaseService {
   final CollectionReference userCollection =
       Firestore.instance.collection('users');
 
+  Future<String> getUserUid() async {
+    FirebaseUser user = await FirebaseAuth.instance.currentUser();
+    print(user.uid);
+    return user.uid;
+  }
+
   Future updateUserData(String name) async {
     return await userCollection.document(uid).setData({'name': name});
   }
 
   Future addTask(String title, String subtitle, Color color) async {
-    final CollectionReference taskCollection = userCollection
+    final CollectionReference taskCollection = Firestore.instance
+        .collection('users')
         .document(uid)
         .collection('Tasks');
     return await taskCollection.document().setData({
       'complited': false,
       'title': title,
       'subtitle': subtitle,
-      'color': color.toString().substring(35,
-          45) // MaterialColor(primary value: Color(0xffcddc39)) = 0xffcddc39
+      'color': color.value// MaterialColor(primary value: Color(0xffcddc39)) = 0xffcddc39
     });
+  }
+
+  //task list from snapshot
+  List<Task> _taskListFromSnapshot(QuerySnapshot snapshot) {
+    return snapshot.documents.map((doc) {
+      return Task(
+          color: Color(doc.data['color']) ?? Colors.white,
+          isComplited: doc.data['complited'] ?? false,
+          subtitle: doc.data["subtitle"] ?? '',
+          title: doc.data["title"] ?? "");
+    }).toList();
+  }
+
+  //get tasks streams
+  Stream<List<Task>> get tasks {
+//    final uid = getUserUid().toString();
+    print(uid);
+    return userCollection
+        .document(uid)
+        .collection('Tasks')
+        .snapshots()
+        .map(_taskListFromSnapshot);
   }
 }

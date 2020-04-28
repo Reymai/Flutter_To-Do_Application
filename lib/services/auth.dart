@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:fluttertodoapplication/models/user.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -45,6 +46,7 @@ class AuthService {
       AuthResult result = await _auth.signInAnonymously();
       FirebaseUser user = result.user;
       await DatabaseService(uid: user.uid).updateUserData(name);
+      await DatabaseService(uid: user.uid).addTask('Welcome', 'Message', Colors.lime);
       return _userFromFirebaseUser(user);
     } catch (e) {
       print(e.toString());
@@ -75,6 +77,7 @@ class AuthService {
 
       //create a new document for the user with the uid
       await DatabaseService(uid: user.uid).updateUserData(name);
+      await DatabaseService(uid: user.uid).addTask('Welcome', 'Message', Colors.lime);
       return _userFromFirebaseUser(user);
     } catch (e) {
       print(e.toString());
@@ -95,6 +98,7 @@ class AuthService {
           (await _auth.signInWithCredential(credential)).user;
       //create a new document for the user with the uid
       await DatabaseService(uid: user.uid).updateUserData(user.displayName);
+      await DatabaseService(uid: user.uid).addTask('Welcome', 'Message', Colors.lime);
       return _userFromFirebaseUser(user);
     } catch (e) {
       print(e);

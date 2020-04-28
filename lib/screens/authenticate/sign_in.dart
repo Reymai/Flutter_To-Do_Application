@@ -4,6 +4,7 @@ import 'package:flutter_signin_button/button_builder.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:fluttertodoapplication/services/auth.dart';
+import 'package:fluttertodoapplication/services/database.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
   final AuthService _authService = AuthService();
+  final DatabaseService _databaseService = DatabaseService();
   final _formKey = GlobalKey<FormState>();
   TextEditingController _controller = TextEditingController();
 
