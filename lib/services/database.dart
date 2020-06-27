@@ -28,6 +28,7 @@ class DatabaseService {
         .collection('Tasks');
     return await taskCollection.document().setData({
       'complited': false,
+      'date': (DateTime.now().millisecondsSinceEpoch/1000).round(), // unix time
       'title': title,
       'subtitle': subtitle,
       'color': color.value// MaterialColor(primary value: Color(0xffcddc39)) = 0xffcddc39
@@ -40,6 +41,7 @@ class DatabaseService {
       return Task(
           color: Color(doc.data['color']) ?? Colors.white,
           isComplited: doc.data['complited'] ?? false,
+          date: doc.data['date'] ?? 0,
           subtitle: doc.data["subtitle"] ?? '',
           title: doc.data["title"] ?? "");
     }).toList();
